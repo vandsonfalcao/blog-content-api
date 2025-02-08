@@ -51,6 +51,22 @@ app.get("/", (_: Request, res: Response) => {
 	res.status(200).json({ status: "API rodando com sucesso!" });
 });
 // Rota para listar posts com paginação
+app.get("/slugs/posts", async (req: Request, res: Response) => {
+	try {
+		const posts = await getPosts();
+
+		const response = posts.map((post) => ({
+			slug: post.slug,
+		}));
+
+		res.status(200).json(response);
+	} catch (error) {
+		console.error("Erro ao listar posts:", error);
+		res.status(500).json({ error: "Erro interno ao obter os slugs" });
+	}
+});
+
+// Rota para listar posts com paginação
 app.get("/posts", async (req: Request, res: Response) => {
 	try {
 		const page = parseInt(req.query.page as string) || 1;
