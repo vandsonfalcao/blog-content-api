@@ -29,17 +29,24 @@ jobs:
             - name: Build
               run: pnpm build
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
+            - name: Set up Git
+              run: |
+                git config --global user.name 'github-actions[bot]'
+                git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  path: "./dist"
+            - name: Create gh-pages branch if it doesn't exist
+              run: |
+                if ! git show-ref --verify --quiet refs/heads/gh-pages; then
+                  git checkout --orphan gh-pages
+                  git rm -rf .
+                  touch README.md
+                  git add README.md
+                  git commit -m "Initial commit"
+                  git push origin gh-pages
+                fi
 
             - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+              uses: peaceiris/actions-gh-pages@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./dist
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./dist
