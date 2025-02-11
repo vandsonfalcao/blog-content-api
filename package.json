@@ -1,13 +1,12 @@
 {
   "name": "blog-content-api",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint ./**/*.ts",
     "lint:fix": "npx eslint ./**/*.ts --fix",
-    "dev": "tsx watch src/index.ts",
-    "build": "tsx src/build.ts"
+    "build": "tsx build.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,8 +22,6 @@
     "typescript-eslint": "^8.23.0"
   },
   "dependencies": {
-    "@types/express": "^5.0.0",
-    "express": "^4.21.2",
     "gray-matter": "^4.0.3"
   }
 }

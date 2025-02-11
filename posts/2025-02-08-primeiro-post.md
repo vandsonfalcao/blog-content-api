@@ -1,4 +1,12 @@
-# Formatando PC com Manjaro GNOME
+---
+title: "Formatando PC com Manjaro GNOME"
+description: "Anotações para quando formatar o pc"
+slug: "2025-02-08-primeiro-post"
+date: "2025-02-08"
+author: "Vandson Falcão"
+tags: ["markdown", "blog"]
+publish: false
+---
 
 ## Instalação do SO
 
@@ -14,18 +22,18 @@ Sugestão de comandos & Syntax highlighting no terminal
 
 - Clone this repository into $ZSH_CUSTOM/plugins (by default ~/.oh-my-zsh/custom/plugins)
 
-```
+```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 
 - Add the plugin to the list of plugins for Oh My Zsh to load (inside ~/.zshrc):
 
-```
+```bash
 nano ~/.zshrc
 ```
 
-```
+```text
 plugins=( 
     git
     yarn
@@ -39,7 +47,7 @@ plugins=(
 
 >Terminal tranparente
 
-```
+```bash
 sudo pacman -Syu gnome-terminal-fedora
 ```
 
@@ -52,22 +60,22 @@ Caso não apareça a opção utilize o link abaixo para habilitar a opção.
 <https://manjariando.com.br/pamac-snap-flatpak/>
 >Comando para habilitar a opção
 
-```
+```bash
 pamac install libpamac-snap-plugin
 ```
 
 >Após habilitar suporte rode o comando abaixo, nao lembro a ordem...
 
-```
+```bash
 sudo ln -s /var/lib/snapd/snap /snap
 systemctl enable --now snapd.apparmor
 ```
 
 Discord
 
-```
+```bash
 sudo pacman -Syu discord
-or
+# or
 sudo snap install discord
 ```
 
@@ -75,28 +83,28 @@ uma vez tive problemas de app desatualizado entao usei o da snapstore
 
 Spotify
 
-```
+```bash
 flatpak install flathub com.spotify.Client
 ```
 
 Insomnia
 
-```
+```bash
 flatpak install flathub rest.insomnia.Insomnia
-or
+# or
 sudo snap install insomnia
 ```
 
 Firefox
 >se o firefox vier com visual diferente basta desintalar o tema maia
 
-```
+```bash
 sudo pacman -Rc firefox-gnome-theme-maia
 ```
 
 Telegram
 
-```
+```bash
 sudo pacman -Syu telegram-desktop
 ```
 
@@ -106,24 +114,24 @@ node-version-manager( nvm )
 >Leia a doc pode ter passos após instalar
 Depois que instalar o nvm instale o node
 
-```
+```bash
 nvm install --lts
 nvm use --lts
 node -v
-<resposta>
+# <resposta>
 nvm alias default <resposta
 ```
 
 >Verifique se o yarn & npm foi instalado e caso não use o pacman para instala-los.
 
-```
+```bash
 sudo pacman -Syu yarn npm
 ```
 
 Evernote
 é possivel usar online no site, mas para instalar na maquina é preciso usar o repositorio a seguir.
 
-```
+```bash
 git clone https://aur.archlinux.org/evernote-for-linux-bin.git
 cd evertnote-for-linux-bin
 makepkg -sir
@@ -131,7 +139,7 @@ makepkg -sir
 
 VS code
 
-```
+```bash
 sudo snap install code --classic
 ```
 
@@ -140,14 +148,14 @@ sudo snap install code --classic
 
 >font jetbrains-mono para fonte do editor
 
-```
+```bash
 sudo pacman -Syu ttf-jetbrains-mono
 sudo pacman -Syu ttf-meslo-nerd-font-powerlevel10k
 ```
 
 Docker
 
-```
+```bash
 sudo pacman -S docker docker-compose docker-buildx
 sudo usermod -aG docker $USER
 sudo systemctl enable docker
@@ -156,35 +164,41 @@ reboot
 
 Flameshot
 
-```
+```bash
 sudo pacman -Syu flameshot
 ```
 
 OBS Studio
 
-```
+```bash
 sudo pacman -Syu obs-studio
 ```
 
 Extensões
+
 >CPU Ram Swap e Rede
-<https://extensions.gnome.org/extension/1634/resource-monitor/>
+
+[resource-monitor](https://extensions.gnome.org/extension/1634/resource-monitor/)
 
 >customização de transparencias
-<https://extensions.gnome.org/extension/3193/blur-my-shell/>
+
+[blur-my-shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
 
 >Icones minimizados na topbar
 
-<https://extensions.gnome.org/extension/615/appindicator-support/>
+[appindicator-support](https://extensions.gnome.org/extension/615/appindicator-support/)
 
 >Dash na dock - percebi que não utilizo mas salvei caso precise
-<https://extensions.gnome.org/extension/307/dash-to-dock/>
+
+[dash-to-dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 
 >Melhora no visual na hora de mostrar as janelas e espaços de trabalho
-<https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/>
+
+[gnome-40-ui-improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 
 >Modificar o tema por um instalado no diretorio do usuario
-<https://extensions.gnome.org/extension/19/user-themes/>
+
+[user-themes](https://extensions.gnome.org/extension/19/user-themes/)
 
 Tema
 há varias formas de fazer aque vi que funciona é:

@@ -1,7 +1,0 @@
----
-title: Via celular
----
-
-# via celular
-
-este post foi feito no site do github no meu celular.
